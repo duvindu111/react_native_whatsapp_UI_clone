@@ -6,6 +6,7 @@ import CategoryBadge from '@/components/custom_components/CategoryBadge'
 import ProfileViewOutside from '@/components/custom_components/ProfileViewOutside'
 import Footer from '@/components/custom_components/Footer'
 import FloatingGreenButton from '@/components/custom_components/FloatingGreenButton'
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function index() {
   return (
@@ -60,7 +61,7 @@ export default function index() {
           UpdatesNotification
           CallCountNotification CallNotificationCount={7}/>
         </View>
-        <FloatingGreenButton/>
+        <FloatingGreenButton Icon={<MaterialIcons name="chat" size={24} color="white" />}/>
       </SafeAreaView>
     </SafeAreaProvider>
   )

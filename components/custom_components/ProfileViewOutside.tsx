@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import images from '@/constants/ProfileImagesMapping'
+import images from '@/constants/ImagesMapping'
 
 export default function ProfileViewOutside({
   Name,
@@ -40,7 +40,9 @@ export default function ProfileViewOutside({
                 <Text style={styles.name}>{Name}</Text>
             </View>
             <View>
-                <Text style={styles.dateTime}>{DateTime}</Text>
+                <Text style={Notification ? styles.dateTimeNtf : styles.dateTimeNoNtf}>
+                  {DateTime}
+                </Text>
             </View>
         </View>
 
@@ -100,8 +102,11 @@ const styles = StyleSheet.create({
       color: 'rgba(113, 113, 113, 1)',
       fontSize: 16,
     },
-    dateTime: {
+    dateTimeNoNtf: {
       color: 'rgba(113, 113, 113, 1)'
+    },
+    dateTimeNtf: {
+      color: '#0CC143'
     },
     name: {
       fontSize: 20,

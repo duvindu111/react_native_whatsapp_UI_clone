@@ -56,8 +56,8 @@ export default function Footer({
         </View>
         <Text>Chats</Text>
       </View>
-      <View style={[styles.horizontalCenter, Updates ? styles.greenBackground : null]}>
-        <View style={styles.iconContainer}>
+      <View style={styles.horizontalCenter}>
+        <View style={[styles.iconContainer, Updates ? styles.greenBackground : null]}>
             <Image
                 style={[styles.icon, styles.statusIcon]}
                 source={require('@/assets/images/icons/whatsapp-status.png')}

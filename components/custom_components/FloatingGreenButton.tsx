@@ -1,11 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import { MaterialIcons } from '@expo/vector-icons';
 
-export default function FloatingGreenButton() {
+export default function FloatingGreenButton({
+  Icon
+}:{
+  Icon: React.ReactNode
+}) {
   return (
     <View style={styles.btnContainer}>
-        <MaterialIcons name="chat" size={24} color="white" />
+        {Icon}
     </View>
   )
 }

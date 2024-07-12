@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     headerLeftTextNoLogo: {
         fontSize: 25, 
         color: 'black',
-        fontWeight: '400'
+        letterSpacing: 0.3,
     },
     headerRightText: {
         flexDirection: 'row',

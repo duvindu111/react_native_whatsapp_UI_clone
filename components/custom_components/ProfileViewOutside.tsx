@@ -1,15 +1,34 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import images from '@/constants/ProfileImagesMapping'
 
-export default function ProfileViewOutside() {
+export default function ProfileViewOutside({
+  Name,
+  Message,
+  ImageName,
+  DateTime,
+  Muted,
+  Pinned,
+  Notification,
+  NtfCount
+}:{
+  Name: String
+  Message: String
+  ImageName: string
+  DateTime: String
+  Muted?: boolean
+  Pinned?: boolean
+  Notification?: boolean
+  NtfCount?: number
+}) {
   return (
     <View style={styles.mainContainer}>
       {/* imageView */}
       <View>
       <Image
         style={styles.profilePic}
-        source={require('@/assets/images/profile-pic/aliena smith.jpg')}
+        source={images[ImageName as keyof typeof images]}
       />
       </View>
 
@@ -18,24 +37,30 @@ export default function ProfileViewOutside() {
         {/* topView */}
         <View style={styles.spaceBetween}>
             <View>
-                <Text style={styles.name}>Aliena Smith</Text>
+                <Text style={styles.name}>{Name}</Text>
             </View>
             <View>
-                <Text style={styles.dateTime}>2.01 am</Text>
+                <Text style={styles.dateTime}>{DateTime}</Text>
             </View>
         </View>
 
         {/* bottomView */}
         <View style={[styles.spaceBetween, styles.bottomView]}>
-            <View>
-                <Text style={styles.description}>I sent you the documents.</Text>
+            <View style={styles.descriptionContainer}>
+                <Text style={styles.description} numberOfLines={1}>{Message}</Text>
             </View>
             <View style={styles.iconContainer}>
+                {Muted ?                
                 <MaterialCommunityIcons name="bell-off" size={20} color="rgba(113, 113, 113, 1)" />
+                : null }
+                {Pinned ? 
                 <MaterialCommunityIcons name="pin" size={20} color="rgba(113, 113, 113, 1)" />
+                : null}
+                {Notification ?
                 <View style={styles.ntfCountCircle}>
-                    <Text style={styles.ntfCountNumber}>5</Text>
-                </View>
+                    <Text style={styles.ntfCountNumber}>{NtfCount}</Text>
+                </View> 
+                : null}
             </View>
         </View>
       </View>
@@ -44,6 +69,10 @@ export default function ProfileViewOutside() {
 }
 
 const styles = StyleSheet.create({
+    descriptionContainer: {
+      flex: 1,
+      paddingRight: 20
+    },
     ntfCountNumber: {
       color: 'white',
       fontSize: 12,
@@ -59,7 +88,9 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
       flexDirection: 'row',
-      gap: 3
+      gap: 3,
+      width: 66,
+      justifyContent: 'flex-end',
     },
     bottomView: {
       marginTop: 3,
@@ -67,7 +98,7 @@ const styles = StyleSheet.create({
     },
     description: {
       color: 'rgba(113, 113, 113, 1)',
-      fontSize: 16
+      fontSize: 16,
     },
     dateTime: {
       color: 'rgba(113, 113, 113, 1)'
@@ -86,7 +117,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       gap: 15,
       paddingVertical: 10,
-      marginBottom: 15
+      marginBottom: 6
     },
     profilePic: {
       width: 55,

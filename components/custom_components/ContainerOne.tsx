@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     iconContainer: {
       flexDirection: 'row',
       gap: 3,
-      width: 66,
+      // width: 'max-content',
       justifyContent: 'flex-end',
     },
     bottomView: {

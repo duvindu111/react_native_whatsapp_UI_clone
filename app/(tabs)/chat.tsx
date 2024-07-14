@@ -10,6 +10,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function chat() {
   return (
+    
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
         <View>
@@ -30,7 +31,7 @@ export default function chat() {
               ImageName='aliena_smith' DateTime={"2.01 am"}
               Muted Pinned Notification NtfCount={5}/>
               <ProfileViewOutside Name={"Darren Till"} 
-              Message={"We will be there by noon. Hope you're ready"}
+              Message={"We will be there by noon. Hope you're ready."}
               ImageName='darren_till' DateTime={"7/10/24"}
               Notification NtfCount={1}/>
               <ProfileViewOutside Name={"Ethan"} 
@@ -55,13 +56,13 @@ export default function chat() {
               ImageName='wade' DateTime={"7/9/24"}/>
           </View>
         </ScrollView>
-        <View>
-          {/* footer */}
-          <Footer Chats ChatCountNotification ChatNotificationCount={5} 
+         <View> 
+           {/* footer  */}
+           {/* <Footer Chats ChatCountNotification ChatNotificationCount={5} 
           UpdatesNotification
-          CallCountNotification CallNotificationCount={7}/>
+          CallCountNotification CallNotificationCount={7}/> */}
         </View>
-        <FloatingGreenButton Icon={<MaterialIcons name="chat" size={24} color="white" />}/>
+        <FloatingGreenButton Icon={<MaterialIcons name="chat" size={24} color="white" />}/> 
       </SafeAreaView>
     </SafeAreaProvider>
   )
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     chatSection: {
       backgroundColor: 'white',
       paddingHorizontal: 15,
+      paddingBottom: 90
     },
     bodyContainer: {
       backgroundColor: 'white',

@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router'
 
 export default function Footer({
     Chats,
@@ -40,7 +41,8 @@ export default function Footer({
 }) {
   return (
     <View style={styles.footer}>
-      <View style={styles.horizontalCenter}>
+        <Link href={'/chat'} >
+        <View style={styles.horizontalCenter} >
         <View style={[styles.iconContainer, Chats ? styles.greenBackground : null]}>
             <MaterialCommunityIcons name="android-messages" size={26} color="black" />
             {
@@ -56,7 +58,10 @@ export default function Footer({
         </View>
         <Text>Chats</Text>
       </View>
-      <View style={styles.horizontalCenter}>
+        </Link>
+
+        <Link href='updates'>
+        <View style={styles.horizontalCenter}>
         <View style={[styles.iconContainer, Updates ? styles.greenBackground : null]}>
             <Image
                 style={[styles.icon, styles.statusIcon]}
@@ -75,6 +80,8 @@ export default function Footer({
         </View>
         <Text>Updates</Text>
       </View>
+        </Link>
+     
       <View style={styles.horizontalCenter}>
         <View style={[styles.iconContainer, Communities ? styles.greenBackground : null]}>
             <Ionicons name="people-outline" size={24} color="black" />

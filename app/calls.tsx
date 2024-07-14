@@ -2,26 +2,19 @@ import { View, StyleSheet, ScrollView } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import React from 'react'
 import Header from '@/components/custom_components/Header'
-import CategoryBadge from '@/components/custom_components/CategoryBadge'
-import ProfileViewOutside from '@/components/custom_components/ProfileViewOutside'
+import ProfileViewOutside from '@/components/custom_components/ContainerOne'
 import Footer from '@/components/custom_components/Footer'
 import FloatingGreenButton from '@/components/custom_components/FloatingGreenButton'
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default function index() {
+export default function calls() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
         <View>
-          <Header LeftText={"WhatsApp"} Logo/>
+          <Header LeftText={"Calls"}/>
         </View>
         <ScrollView style={styles.bodyContainer}>
-          {/* category section */}
-          <View id='category-section' style={styles.categorySection}>
-            <CategoryBadge Word={"All"} IsActive/>
-            <CategoryBadge Word={"Unread"} />
-            <CategoryBadge Word={"Groups"} />
-          </View>
 
           {/* chat section */}
           <View id='chat-section' style={styles.chatSection}>
@@ -57,7 +50,7 @@ export default function index() {
         </ScrollView>
         <View>
           {/* footer */}
-          <Footer Chats ChatCountNotification ChatNotificationCount={5} 
+          <Footer Calls ChatCountNotification ChatNotificationCount={5} 
           UpdatesNotification
           CallCountNotification CallNotificationCount={7}/>
         </View>

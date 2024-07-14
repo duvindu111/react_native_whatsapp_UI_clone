@@ -16,7 +16,7 @@ export default function FloatingGreenButton({
 const styles = StyleSheet.create({
     btnContainer: {
         position: 'absolute',
-        bottom: 95,
+        bottom: 25,
         right: 15,
         width: 60,
         height: 60,

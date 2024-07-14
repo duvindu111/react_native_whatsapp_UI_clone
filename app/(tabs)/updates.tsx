@@ -3,7 +3,6 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import React from 'react'
 import Header from '@/components/custom_components/Header'
 import ProfileViewOutside from '@/components/custom_components/ContainerOne'
-import Footer from '@/components/custom_components/Footer'
 import FloatingGreenButton from '@/components/custom_components/FloatingGreenButton'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -70,14 +69,15 @@ export default function updates() {
                 Notification NtfCount={2}/>
                 <ProfileViewOutside Name={"PFL MMA"} 
                 ImageName='pflmma'
-                Message={"https://africa.espn.com/mma/story/_/i"} DateTime={"5.55 am"} />
+                Message={"https://africa.espn.com/mma/story/_/id/40536871/mma-francis"} 
+                DateTime={"5.55 am"} />
                 <ProfileViewOutside Name={"UFC"} 
                 ImageName='ufc'
                 Message={"📷 Put your name on it! ✍️ Tracy Cortez all smiles"} 
                 DateTime={"7/10/24"}/>
                 <ProfileViewOutside Name={"MMA Fighting"} 
                 ImageName='mmafighting' 
-                Message={"📷 Conor McGregor details his toe🏆"}
+                Message={"📷 Conor McGregor details his toe injury and vows to 'get this back'"}
                 DateTime={"6/21/24"} NtfCount={7}/>
                 <ProfileViewOutside Name={"WPS"}
                 ImageName='wps'
@@ -107,9 +107,9 @@ export default function updates() {
         </ScrollView>
         <View>
           {/* footer */}
-          <Footer Updates ChatCountNotification ChatNotificationCount={5}
+          {/* <Footer Updates ChatCountNotification ChatNotificationCount={5}
             UpdatesNotification
-            CallCountNotification CallNotificationCount={7} />
+            CallCountNotification CallNotificationCount={7} /> */}
         </View>
         <View style={styles.createBtnContainer}>
           <MaterialIcons name="create" size={24} color="rgba(0, 0, 0, 0.8)" />
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   createBtnContainer:{
     position: 'absolute',
-    bottom: 175,
+    bottom: 105,
     right: 20,
     width: 50,
     height: 50,

@@ -20,7 +20,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 #### Chat Screen
 
-<br><img src="./assets/images/screenshots/chat.png" alt="Chat Screenshot" width="300"/>
+<br><img src="./assets/images/screenshots/index.png" alt="Chat Screenshot" width="300"/>
 
 #### <br>Updates Screen
 

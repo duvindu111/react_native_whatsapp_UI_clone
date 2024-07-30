@@ -9,13 +9,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import UpdateStatusImageText from '@/components/custom_components/UpdateStatusImageText'
 import FindChannelBox from '@/components/custom_components/FindChannelBox'
+import HeaderPage from "@/constants/HeaderPage";
 
 export default function updates() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
         <View>
-          <Header LeftText={"Updates"} />
+          <Header LeftText={"Updates"} HeaderPage={HeaderPage.UPDATE}/>
         </View>
         <ScrollView style={styles.bodyContainer}>
           {/* category section */}

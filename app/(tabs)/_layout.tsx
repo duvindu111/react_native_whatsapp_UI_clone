@@ -1,8 +1,7 @@
-import { Tabs } from 'expo-router';
+import {Tabs} from 'expo-router';
 import React from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import {Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
 
 interface NotificationIconProps {
     icon: JSX.Element;
@@ -15,16 +14,16 @@ const NotificationIcon: React.FC<NotificationIconProps> = ({ icon, count, focuse
     <View style={focused ? styles.focusedIconContainer : undefined}>
         <View>
             {icon}
-            {count > 0 ? 
-            <View style={[styles.notificationDot, styles.dot]}>
-                <Text style={styles.notificationCount}>{count}</Text>
-            </View> 
-            :   
-            newItemsAvailable ?
-            <View style={[styles.newItemsAviailableDot, styles.dot]}>
-            </View> 
-            :
-            null}
+            {count > 0 ?
+                <View style={[styles.notificationDot, styles.dot]}>
+                    <Text style={styles.notificationCount}>{count}</Text>
+                </View>
+                :
+                newItemsAvailable ?
+                    <View style={[styles.newItemsAviailableDot, styles.dot]}>
+                    </View>
+                    :
+                    null}
         </View>
     </View>
 );
@@ -37,27 +36,16 @@ export default function TabLayout() {
             tabBarItemStyle: { ...styles.tabItem },
             tabBarLabelStyle: { fontSize: 14 },
             tabBarActiveTintColor: 'black',
-        
+
         }}>
-              <Tabs.Screen name="calls"
-                options={{
-                    title: 'Calls',
-                    tabBarIcon: ({ focused }) => (
-                        <NotificationIcon 
-                            icon={<Ionicons name="call-outline" size={24} color="black" />} 
-                            count={0} 
-                            focused={focused} 
-                        />
-                    )
-                }} />
-            <Tabs.Screen name="chat"
+            <Tabs.Screen name="index"
                 options={{
                     title: 'Chats',
                     tabBarIcon: ({ focused }) => (
-                        <NotificationIcon 
-                            icon={<MaterialCommunityIcons name="android-messages" size={26} color="black" />} 
-                            count={7} 
-                            focused={focused} 
+                        <NotificationIcon
+                            icon={<MaterialCommunityIcons name="message-text-outline" size={24} color="black" />}
+                            count={7}
+                            focused={focused}
                         />
                     )
                 }} />
@@ -65,12 +53,12 @@ export default function TabLayout() {
                 options={{
                     title: 'Updates',
                     tabBarIcon: ({ focused }) => (
-                        <NotificationIcon 
+                        <NotificationIcon
                             icon={<Image
                                 style={[styles.icon, styles.statusIcon]}
-                                source={require('@/assets/images/icons/whatsapp-status.png')} />} 
-                            count={0} 
-                            focused={focused} 
+                                source={require('@/assets/images/icons/whatsapp-status.png')} />}
+                            count={0}
+                            focused={focused}
                             newItemsAvailable
                         />
                     )
@@ -79,14 +67,24 @@ export default function TabLayout() {
                 options={{
                     title: 'Communities',
                     tabBarIcon: ({ focused }) => (
-                        <NotificationIcon 
-                            icon={<Ionicons name="people-outline" size={24} color="black" />} 
-                            count={0} 
-                            focused={focused} 
+                        <NotificationIcon
+                            icon={<Ionicons name="people-outline" size={24} color="black" />}
+                            count={0}
+                            focused={focused}
                         />
                     )
                 }} />
-          
+            <Tabs.Screen name="calls"
+                options={{
+                    title: 'Calls',
+                    tabBarIcon: ({ focused }) => (
+                        <NotificationIcon
+                            icon={<Ionicons name="call-outline" size={22} color="black" />}
+                            count={0}
+                            focused={focused}
+                        />
+                    )
+                }} />
         </Tabs>
     );
 }

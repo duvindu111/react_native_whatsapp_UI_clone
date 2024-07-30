@@ -1,20 +1,58 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
-import React from 'react'
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
-import Header from '@/components/custom_components/Header'
+import CategoryBadge from '@/components/custom_components/CategoryBadge'
+import ProfileViewOutside from '@/components/custom_components/ContainerOne'
 import FloatingGreenButton from '@/components/custom_components/FloatingGreenButton'
-import { MaterialIcons } from '@expo/vector-icons';
+import Header from '@/components/custom_components/Header'
+import {MaterialIcons} from '@expo/vector-icons'
+import React from 'react'
+import {ScrollView, StyleSheet, View} from 'react-native'
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context'
+import HeaderPage from "@/constants/HeaderPage";
 
-export default function calls() {
+export default function index() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
         <View>
-          <Header LeftText={"Calls"} />
+          <Header LeftText={"WhatsApp"} Logo HeaderPage={HeaderPage.CHAT}/>
         </View>
         <ScrollView style={styles.bodyContainer}>
-          <View id='createCallLinkSec'>
-    
+          {/* category section */}
+          <View id='category-section' style={styles.categorySection}>
+            <CategoryBadge Word={"All"} IsActive/>
+            <CategoryBadge Word={"Unread"}/>
+            <CategoryBadge Word={"Groups"}/>
+          </View>
+
+          {/* index section */}
+          <View id='chat-section' style={styles.chatSection}>
+            <ProfileViewOutside Name={"Aliena Smith"}
+                                Message={"I sent you the documents."}
+                                ImageName='aliena_smith' DateTime={"2.01 am"}
+                                Muted Pinned Notification NtfCount={5}/>
+            <ProfileViewOutside Name={"Darren Till"}
+                                Message={"We will be there by noon. Hope you're ready."}
+                                ImageName='darren_till' DateTime={"7/10/24"}
+                                Notification NtfCount={1}/>
+            <ProfileViewOutside Name={"Ethan"}
+                                Message={'Ethan reacted ❤️ to "yeah i will"'}
+                                ImageName='ethan_two' DateTime={"2.45 am"}
+                                Notification NtfCount={3}/>
+            <ProfileViewOutside Name={"Jorge Dawson"}
+                                Message={"I'm sorry, I can't make it today"}
+                                ImageName='jorge_dawson' DateTime={"1.34 am"}/>
+            <ProfileViewOutside Name={"Michael"}
+                                Message={"Voice call"}
+                                ImageName='michael' DateTime={"1.06 am"}
+                                Notification NtfCount={1}/>
+            <ProfileViewOutside Name={"Rose"}
+                                Message={"yes🥳🥳🥳"}
+                                ImageName='rose' DateTime={"Yesterday"}/>
+            <ProfileViewOutside Name={"Selena"}
+                                Message={"lorem ipsum dolor sit amet consectetur adipiscing elit"}
+                                ImageName='selena' DateTime={"Yesterday"}/>
+            <ProfileViewOutside Name={"Wade"}
+                                Message={"lorem ipsum dolor sit amet consectetur adipiscing elit"}
+                                ImageName='wade' DateTime={"7/9/24"}/>
           </View>
         </ScrollView>
          <View> 
@@ -23,13 +61,51 @@ export default function calls() {
           UpdatesNotification
           CallCountNotification CallNotificationCount={7}/> */}
         </View>
-        <FloatingGreenButton Icon={<MaterialIcons name="chat" size={24} color="white" />}/> 
+        <FloatingGreenButton Icon={<MaterialIcons name="chat" size={24} color="white"/>}/>
       </SafeAreaView>
     </SafeAreaProvider>
   )
 }
 
 const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
     safeArea: {
       flex: 1,
     },

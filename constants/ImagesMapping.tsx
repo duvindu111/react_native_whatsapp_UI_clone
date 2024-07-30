@@ -23,6 +23,7 @@ rockstargames: require('@/assets/images/new_channel_logos/rockstargames.jpg'),
 thenewyorktimes: require('@/assets/images/new_channel_logos/thenewyorktimes.jpg'),
 uefa: require('@/assets/images/new_channel_logos/uefa.jpg'),
 whatsapp: require('@/assets/images/new_channel_logos/whatsapp.jpg'),
+ufcred: require('@/assets/images/channel_logos/ufc_red.jpg'),
 };
 
 export default images;

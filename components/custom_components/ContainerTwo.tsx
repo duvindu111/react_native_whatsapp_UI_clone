@@ -4,6 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import images from '@/constants/ImagesMapping';
+import CallStatus from '@/constants/CallStatus';
 
 export default function ProfileViewOutside({
   Name,
@@ -12,7 +13,8 @@ export default function ProfileViewOutside({
   Audio,
   Video,
   Call,
-  Icon
+  Icon,
+  CallStatus
 }:{
   Name: String
   Message: String
@@ -21,6 +23,7 @@ export default function ProfileViewOutside({
   Video?: boolean
   Call?: boolean
   Icon?: React.ReactNode
+  CallStatus: CallStatus
 }) {
   return (
     <View style={styles.mainContainer}>
@@ -37,16 +40,25 @@ export default function ProfileViewOutside({
         {/* topView */}
         <View style={styles.spaceBetween}>
             <View>
-                <Text style={styles.name}>{Name}</Text>
+                <Text style={[styles.name, CallStatus === "Missed" && styles.redText]}>{Name}</Text>
             </View>
         </View>
 
         {/* bottomView */}
         <View style={[styles.spaceBetween, styles.bottomView]}>
             <View style={styles.descriptionContainer}>
-            <MaterialIcons name="call-received" size={24} color="black" />
-            <MaterialIcons name="call-made" size={24} color="black" />
-                <Text style={styles.description} numberOfLines={1}>{Message}</Text>
+              <View style={styles.callStatContainer}>
+                {
+                  CallStatus === "Incoming" && <MaterialIcons name="call-received" size={18} color="#0CC143" />
+                }
+                {
+                  CallStatus === "Outgoing" && <MaterialIcons name="call-made" size={18} color="#0CC143" />
+                }
+                {
+                  CallStatus === "Missed" && <MaterialIcons name="call-received" size={18} color="red" />
+                }  
+              </View>
+              <Text style={styles.description} numberOfLines={1}>{Message}</Text>
             </View>
         </View>
       </View>
@@ -67,12 +79,20 @@ export default function ProfileViewOutside({
 }
 
 const styles = StyleSheet.create({
+  redText: {
+    color: 'red'
+  },
+  callStatContainer: {
+    marginRight: 5
+  },
   iconContainer: {
     justifyContent: 'center',
   },
     descriptionContainer: {
       flex: 1,
-      paddingRight: 20
+      paddingRight: 20,
+      flexDirection: 'row',
+      alignItems: 'center'
     },
     bottomView: {
       marginTop: 3,

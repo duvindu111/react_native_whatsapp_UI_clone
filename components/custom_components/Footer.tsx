@@ -41,7 +41,7 @@ export default function Footer({
 }) {
   return (
     <View style={styles.footer}>
-        <Link href={'/chat'} >
+        <Link href={'/index'} >
         <View style={styles.horizontalCenter} >
         <View style={[styles.iconContainer, Chats ? styles.greenBackground : null]}>
             <MaterialCommunityIcons name="android-messages" size={26} color="black" />
